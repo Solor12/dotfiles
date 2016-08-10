@@ -7,6 +7,7 @@ inkscape
 keepassx
 keepass2
 
+dconf-tools
 build-essential
 unar
 compizconfig-settings-manager
