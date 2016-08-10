@@ -46,8 +46,11 @@ yes | sudo apt-get remove unity-webapps-common
 # 不要な依存関係の削除
 yes | sudo apt autoremove
 
+# 全体的なキーバインドをEmacsにする
+gsettings set org.gnome.desktop.interface gtk-key-theme Emacs
+
 # 設定ファイルのシンボリックリンクをホームディレクトリに作成
-sh install.sh
+#sh install.sh
 
 # 手動でやる必要のあることを表示
 cat manual_setup.list
