@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/hayato/dotfiles/ppa.list" added="2016-08-09T15:53:38Z" modified="2016-08-09T15:53:44Z" visited="2016-08-09T15:53:38Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2016-08-09T15:53:44Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hayato/dotfiles/initialise.sh" added="2016-08-09T15:58:24Z" modified="2016-08-09T17:07:47Z" visited="2016-08-09T15:58:24Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-shellscript"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2016-08-09T15:58:24Z" count="1"/>
+          <bookmark:application name="nautilus" exec="&apos;/usr/bin/emacs24 -nw %F&apos;" modified="2016-08-09T17:07:47Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hayato/dotfiles/wget.list" added="2016-08-09T16:00:53Z" modified="2016-08-09T16:57:04Z" visited="2016-08-09T16:00:54Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2016-08-09T16:57:04Z" count="7"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hayato/Downloads/vivaldi-stable_1.2.490.43-1_amd64(1).deb" added="2016-08-09T16:44:10Z" modified="2016-08-09T16:44:10Z" visited="2016-08-09T16:44:11Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/vnd.debian.binary-package"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2016-08-09T16:44:10Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hayato/Downloads/vivaldi-stable_1.2.490.43-1_amd64.deb" added="2016-08-09T16:49:29Z" modified="2016-08-09T17:05:15Z" visited="2016-08-09T16:49:29Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/vnd.debian.binary-package"/>
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;gnome-software --local-filename=%f&apos;" modified="2016-08-09T17:05:15Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hayato/dotfiles/apt_package.list" added="2016-08-09T16:59:42Z" modified="2016-08-09T16:59:42Z" visited="2016-08-09T16:59:43Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2016-08-09T16:59:42Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hayato/Downloads/google-chrome-stable_current_amd64.deb" added="2016-08-09T17:05:29Z" modified="2016-08-09T17:07:19Z" visited="2016-08-09T17:05:29Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/vnd.debian.binary-package"/>
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;gdebi-gtk %f&apos;" modified="2016-08-09T17:07:19Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hayato/Desktop/vivaldi-stable_1.2.490.43-1_amd64.deb" added="2016-08-09T17:05:47Z" modified="2016-08-09T17:05:47Z" visited="2016-08-09T17:05:47Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/vnd.debian.binary-package"/>
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;gnome-software --local-filename=%f&apos;" modified="2016-08-09T17:05:47Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hayato/Desktop/google-chrome-stable_current_amd64.deb" added="2016-08-09T17:08:35Z" modified="2016-08-09T17:08:35Z" visited="2016-08-09T17:08:35Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/vnd.debian.binary-package"/>
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;gdebi-gtk %f&apos;" modified="2016-08-09T17:08:35Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hayato/.gitconfig" added="2016-08-10T04:40:45Z" modified="2016-08-10T04:40:57Z" visited="2016-08-10T04:40:45Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2016-08-10T04:40:57Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hayato/.ssh/id_rsa.pub" added="2016-08-10T04:43:09Z" modified="2016-08-10T04:43:31Z" visited="2016-08-10T04:43:10Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/vnd.ms-publisher"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="nautilus" exec="&apos;libreoffice --draw %U&apos;" modified="2016-08-10T04:43:09Z" count="1"/>
+          <bookmark:application name="LibreOffice 5.1" exec="&apos;soffice %u&apos;" modified="2016-08-10T04:43:12Z" count="2"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2016-08-10T04:43:31Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
