@@ -30,6 +30,9 @@ yes | sudo apt install $APT_PACKAGES
 # aptパッケージが用意されていないアプリをリストファイルからダウンロード（$HOME/Downloadsに保存）
 yes | wget -i wget.list -P "$HOME"/Downloads
 
+# debパッケージの依存関係の解決
+yes | sudo apt install -f
+
 # debパッケージのインストール
 DPKGS=`tr '\n' ' ' < dpkg.list`
 for f in $DPKGS
