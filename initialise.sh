@@ -53,7 +53,7 @@ yes | sudo apt autoremove
 gsettings set org.gnome.desktop.interface gtk-key-theme Emacs
 
 # xkbでキー配列を変更する
-yes | sudo mv /usr/share/X11/xkb/keycodes/evdev /usr/share/X11/keycodes/bk-evdev && sudo cp evdev /usr/share/X11/keycodes/
+yes | sudo mv /usr/share/X11/xkb/keycodes/evdev /usr/share/X11/xkb/keycodes/bk-evdev && sudo cp evdev /usr/share/X11/xkb/keycodes/
 
 # マウスのスクロール方向を反転(デバイス名は必要に応じて変える)
 ## 不要？
