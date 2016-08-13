@@ -23,6 +23,9 @@ yes | sudo apt upgrade
 # ゲストセッションを無効化
 yes | sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" >/usr/share/lightdm/lightdm.conf.d/50-no-guest.conf'
 
+# シャットダウンに時間がかかる事がある現象に対応する
+sudo sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=10s/g' /etc/systemd/system.conf
+
 # aptでのpackageのインストール
 APT_PACKAGES=`tr '\n' ' ' < apt_package.list`
 yes | sudo apt install $APT_PACKAGES
