@@ -56,8 +56,7 @@ gsettings set org.gnome.desktop.interface gtk-key-theme Emacs
 yes | sudo mv /usr/share/X11/xkb/keycodes/evdev /usr/share/X11/xkb/keycodes/bk-evdev && sudo cp evdev /usr/share/X11/xkb/keycodes/
 
 # マウスのスクロール方向を反転(デバイス名は必要に応じて変える)
-## 不要？
-## yes | sudo cp 20-natural-scrolling.conf /usr/share/X11/xorg.conf.d/
+yes | sudo cp 20-natural-scrolling.conf /usr/share/X11/xorg.conf.d/
 xinput set-prop "Logitech Wireless Mouse" "Evdev Scrolling Distance" -1 -1 -1
 
 # 設定ファイルのシンボリックリンクをホームディレクトリに作成
