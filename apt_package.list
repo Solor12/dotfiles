@@ -26,6 +26,7 @@ indicator-multiload
 mono-complete
 nautilus-dropbox
 systemback
+tig
 vim
 wine winetricks
 xdotool
