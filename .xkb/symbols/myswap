@@ -1,0 +1,19 @@
+partial modifier_keys
+xkb_symbols "bk-swapkeys" {
+            replace key <CAPS> { [ Control_L ] };
+            replace key <LCTL> { [ Return ] };
+
+            replace key <LWIN> { [ Muhenkan ] };
+            replace key <MUHE> { [ Super_L ] };
+            replace key <HENK> { [ Super_R ] };
+            replace key <HKTG> { [ Alt_R ] };
+            replace key <RALT> {
+                    type[Group1]="PC_ALT_LEVEL2",
+                    symbols[Group1]= [ Hiragana_Katakana, Romaji ]
+            };
+};
+
+xkb_symbols "swapkeys" {
+            replace key <CAPS> { [ Control_L ] };
+            replace key <LCTL> { [ Return ] };
+};
