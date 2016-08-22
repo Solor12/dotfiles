@@ -53,9 +53,10 @@ yes | sudo apt autoremove
 gsettings set org.gnome.desktop.interface gtk-key-theme Emacs
 
 # xkbでキー配列を変更する
-# yes | sudo mv /usr/share/X11/xkb/keycodes/evdev /usr/share/X11/xkb/keycodes/bk-evdev && sudo cp evdev /usr/share/X11/xkb/keycodes/
-# .xdb/をホームディレクトリにコピーしたあとsetkeybindings.shを「自動起動するアプリケーション」に登録
+yes | sudo mv /usr/share/X11/xkb/keycodes/evdev /usr/share/X11/xkb/keycodes/bk-evdev && sudo cp evdev /usr/share/X11/xkb/keycodes/
 
+## capslockにreturnキーを割り当てる
+yes | sudo mv /usr/share/X11/xkb/symbols/jp /usr/share/X11/xkb/symbols/bk-jp && sudo cp jp /usr/share/X11/xkb/symbols/
 
 # マウスのスクロール方向を反転(デバイス名は必要に応じて変える)
 yes | sudo cp 20-natural-scrolling.conf /usr/share/X11/xorg.conf.d/
