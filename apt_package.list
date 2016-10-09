@@ -8,9 +8,10 @@ keepassx
 keepass2
 makehuman
 
-dconf-tools
 build-essential
-unar
+dconf-tools
+exfat-fuse
+exfat-utils
 compizconfig-settings-manager
 unity-tweak-tool
 clamtk
@@ -29,6 +30,7 @@ nautilus-dropbox
 systemback
 tig
 tree
+unar
 vim
 wine winetricks
 xdotool
