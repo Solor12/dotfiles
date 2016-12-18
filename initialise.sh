@@ -65,5 +65,8 @@ xinput set-prop "Logitech Wireless Mouse" "Evdev Scrolling Distance" -1 -1 -1
 # 設定ファイルのシンボリックリンクをホームディレクトリに作成
 #sh install.sh
 
+# googleドライブをマウントする
+gnome-control-center online-accounts
+
 # 手動でやる必要のあることを表示
 cat manual_setup.list
