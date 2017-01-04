@@ -1,1 +1,0 @@
-cmd_/home/hayato/dotfiles/master/rtl8812au-master/8812au.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/hayato/dotfiles/master/rtl8812au-master/8812au.ko /home/hayato/dotfiles/master/rtl8812au-master/8812au.o /home/hayato/dotfiles/master/rtl8812au-master/8812au.mod.o
