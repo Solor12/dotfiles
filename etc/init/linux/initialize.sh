@@ -6,7 +6,7 @@ yes | LANG=C xdg-user-dirs-gtk-update
 
 
 # ppaの追加
-PPAs=`tr '\n' ' ' < ../assets/apt/ppa.list`
+PPAs=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/ppa.list`
 for f in $PPAs
 do
 	yes | sudo apt-add-repository $f;
@@ -24,7 +24,7 @@ yes | sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" >/usr/share/light
 sudo sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=10s/g' /etc/systemd/system.conf
 
 # aptでのpackageのインストール
-APT_PACKAGES=`tr '\n' ' ' < ../assets/apt/apt_package.list`
+APT_PACKAGES=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/apt_package.list`
 yes | sudo apt install $APT_PACKAGES
 
 # aptパッケージが用意されていないアプリをリストファイルからダウンロード（$HOME/Downloadsに保存）
