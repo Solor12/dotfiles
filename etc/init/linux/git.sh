@@ -7,13 +7,11 @@ set -eu
 # If you don't have git or don't find git preserved
 # in a directory with the path,
 # to install it after the platforms are detected
-if ! has "git"; then
-    # Install git
-    if has "yum"; then
-        sudo yum -y install git
-    elif "apt"; then
-        sudo apt -y install git
-    else
-        exit 1
-    fi
+# Install git
+if has "yum"; then
+    sudo yum -y install git
+elif "apt"; then
+    sudo apt -y install git
+else
+    exit 1
 fi
