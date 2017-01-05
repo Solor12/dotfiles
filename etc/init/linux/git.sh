@@ -8,7 +8,6 @@ set -eu
 # in a directory with the path,
 # to install it after the platforms are detected
 if ! has "git"; then
-
     # Install git
     if has "yum"; then
         log_echo "Install git with Yellowdog Updater Modified"
@@ -20,7 +19,6 @@ if ! has "git"; then
         log_fail "error: require: YUM or APT"
         exit 1
     fi
-    ;;
 fi
 
 log_pass "git: installed successfully"

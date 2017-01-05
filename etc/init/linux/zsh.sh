@@ -19,7 +19,6 @@ if ! has "zsh"; then
         log_fail "error: require: YUM or APT"
         exit 1
     fi
-    ;;
 fi
 
 # Run the forced termination with a last exit code
