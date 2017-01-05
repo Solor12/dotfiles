@@ -17,10 +17,9 @@ do
 done 2>/dev/null &
 
 # shellcheck disable=SC2102
-for i in "$DOTPATH"/etc/init/"$(get_os)"/*.sh
+for i in "$DOTPATH"/etc/init/linux/*.sh
 do
     if [ -f "$i" ]; then
-        log_info "$(e_arrow "$(basename "$i")")"
         if [ "${DEBUG:-}" != 1 ]; then
             bash "$i"
         fi
