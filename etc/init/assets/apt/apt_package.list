@@ -13,7 +13,6 @@ exfat-utils
 ffmpeg
 gdebi
 gimp-gmic
-git
 gloobus-preview
 gloobus-sushi
 gnome-control-center
@@ -38,9 +37,8 @@ unar
 unity-tweak-tool
 unoconv
 vim
+virtualbox
 vlc
 wine
 winetricks
 xdotool
-zsh
-

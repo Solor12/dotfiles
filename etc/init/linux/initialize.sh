@@ -6,17 +6,14 @@ LANG=C xdg-user-dirs-gtk-update
 
 
 # ppaの追加
-PPAs=`tr '\n' ' ' < ppa.list`
+PPAs=`tr '\n' ' ' < ../assets/apt/ppa.list`
 for f in $PPAs
 do
 	yes | sudo apt-add-repository $f;
 done
 
-# packageのアップデート
-yes | sudo apt update
-
-# package及びソフトウェアのアップグレード
-yes | sudo apt upgrade
+# packageのアップデート及びアップグレード
+sudo apt -y update && sudo apt -y upgrade
 
 # login画面の背景画像の固定
 
@@ -27,14 +24,14 @@ yes | sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" >/usr/share/light
 sudo sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=10s/g' /etc/systemd/system.conf
 
 # aptでのpackageのインストール
-APT_PACKAGES=`tr '\n' ' ' < apt_package.list`
+APT_PACKAGES=`tr '\n' ' ' < ../assets/apt/apt_package.list`
 yes | sudo apt install $APT_PACKAGES
 
 # aptパッケージが用意されていないアプリをリストファイルからダウンロード（$HOME/Downloadsに保存）
 yes | wget -i wget.list -P "$HOME"/Downloads
 
 # debパッケージの依存関係の解決
-yes | sudo apt install -f
+#yes | sudo apt install -f
 
 # debパッケージのインストール
 DPKGS=`tr '\n' ' ' < dpkg.list`
@@ -44,7 +41,7 @@ do
 done
 
 # launcherのAmazonをシステムから削除
-yes | sudo apt-get remove unity-webapps-common
+yes | sudo apt remove unity-webapps-common
 
 # 不要な依存関係の削除
 yes | sudo apt autoremove
@@ -62,11 +59,14 @@ yes | sudo mv /usr/share/X11/xkb/symbols/jp /usr/share/X11/xkb/symbols/bk-jp && 
 yes | sudo cp 20-natural-scrolling.conf /usr/share/X11/xorg.conf.d/
 xinput set-prop "Logitech Wireless Mouse" "Evdev Scrolling Distance" -1 -1 -1
 
-# 設定ファイルのシンボリックリンクをホームディレクトリに作成
-#sh install.sh
-
 # googleドライブをマウントする
-gnome-control-center online-accounts
+#gnome-control-center online-accounts
+
+# chromeIPassを使えるようにする
+wget -O keepasshttp.zip https://github.com/pfn/keepasshttp/archive/master.zip
+unzip "$HOME"/Downloads/keepasshttp.zip
+sudo mv -y "$HOME"/Downloads/keepasshttp-master/KeePassHttp.plgx /usr/lib/keepass2/
+
 
 # 手動でやる必要のあることを表示
 cat manual_setup.list
