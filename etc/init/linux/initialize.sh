@@ -31,7 +31,7 @@ yes | sudo apt install $APT_PACKAGES
 yes | wget -i "$DOTPATH"/etc/init/linux/wget.list -P "$HOME"/Downloads
 
 # debパッケージの依存関係の解決
-#yes | sudo apt install -f
+yes | sudo apt install -f
 
 # debパッケージのインストール
 DPKGS=`tr '\n' ' ' < "$DOTPATH"/etc/init/linux/dpkg.list`
@@ -64,7 +64,7 @@ xinput set-prop "Logitech Wireless Mouse" "Evdev Scrolling Distance" -1 -1 -1
 
 # chromeIPassを使えるようにする
 wget -O "$HOME"/Downloads/keepasshttp.zip https://github.com/pfn/keepasshttp/archive/master.zip
-unzip "$HOME"/Downloads/keepasshttp.zip
+unzip "$HOME"/Downloads/keepasshttp.zip -d "$HOME"/Downloads
 sudo mv "$HOME"/Downloads/keepasshttp-master/KeePassHttp.plgx /usr/lib/keepass2/
 
 
