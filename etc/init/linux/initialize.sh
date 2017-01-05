@@ -65,7 +65,7 @@ xinput set-prop "Logitech Wireless Mouse" "Evdev Scrolling Distance" -1 -1 -1
 # chromeIPassを使えるようにする
 wget -O keepasshttp.zip https://github.com/pfn/keepasshttp/archive/master.zip
 unzip "$HOME"/Downloads/keepasshttp.zip
-sudo mv -y "$HOME"/Downloads/keepasshttp-master/KeePassHttp.plgx /usr/lib/keepass2/
+sudo mv "$HOME"/Downloads/keepasshttp-master/KeePassHttp.plgx /usr/lib/keepass2/
 
 
 # 手動でやる必要のあることを表示
