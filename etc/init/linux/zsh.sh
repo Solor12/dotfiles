@@ -8,14 +8,7 @@ set -eu
 # in a directory with the path,
 # to install it after the platforms are detected
 # Install zsh
-if has "yum"; then
-    sudo yum -y install zsh
-elif has "apt"; then
-    sudo apt -y install zsh
-else
-    exit 1
-fi
-
+sudo apt -y install zsh
 
 # Run the forced termination with a last exit code
 exit $?
