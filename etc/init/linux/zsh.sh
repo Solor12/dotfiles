@@ -10,13 +10,10 @@ set -eu
 if ! has "zsh"; then
     # Install zsh
     if has "yum"; then
-        log_echo "Install zsh with Yellowdog Updater Modified"
         sudo yum -y install zsh
     elif has "apt"; then
-        log_echo "Install zsh with Advanced Packaging Tool"
         sudo apt -y install zsh
     else
-        log_fail "error: require: YUM or APT"
         exit 1
     fi
 fi
@@ -30,29 +27,22 @@ if ! contains "${SHELL:-}" "zsh"; then
 
     # Check /etc/shells
     if ! grep -xq "${zsh_path:=/bin/zsh}" /etc/shells; then
-        log_fail "oh, you should append '$zsh_path' to /etc/shells"
         exit 1
     fi
 
     if [ -x "$zsh_path" ]; then
         # Changing for a general user
         if chsh -s "$zsh_path" "${USER:-root}"; then
-            log_pass "Change shell to $zsh_path for ${USER:-root} successfully"
         else
-            log_fail "cannot set '$path' as \$SHELL"
-            log_fail "Is '$path' described in /etc/shells?"
-            log_fail "you should run 'chsh -l' now"
             exit 1
         fi
 
         # For root user
         if [ ${EUID:-${UID}} = 0 ]; then
             if chsh -s "$zsh_path" && :; then
-                log_pass "[root] change shell to $zsh_path successfully"
             fi
         fi
     else
-        log_fail "$zsh_path: invalid path"
         exit 1
     fi
 fi
