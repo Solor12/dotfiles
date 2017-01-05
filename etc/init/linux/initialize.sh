@@ -28,13 +28,13 @@ APT_PACKAGES=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/apt_package.list`
 yes | sudo apt install $APT_PACKAGES
 
 # aptパッケージが用意されていないアプリをリストファイルからダウンロード（$HOME/Downloadsに保存）
-yes | wget -i wget.list -P "$HOME"/Downloads
+yes | wget -i "$DOTPATH"/etc/init/linux/wget.list -P "$HOME"/Downloads
 
 # debパッケージの依存関係の解決
 #yes | sudo apt install -f
 
 # debパッケージのインストール
-DPKGS=`tr '\n' ' ' < dpkg.list`
+DPKGS=`tr '\n' ' ' < "$DOTPATH"/etc/init/linux/dpkg.list`
 for f in $DPKGS
 do
 	yes | sudo dpkg -i "$HOME"/Downloads/$f;
@@ -63,7 +63,7 @@ xinput set-prop "Logitech Wireless Mouse" "Evdev Scrolling Distance" -1 -1 -1
 #gnome-control-center online-accounts
 
 # chromeIPassを使えるようにする
-wget -O keepasshttp.zip https://github.com/pfn/keepasshttp/archive/master.zip
+wget -O "$HOME"/Downloads/keepasshttp.zip https://github.com/pfn/keepasshttp/archive/master.zip
 unzip "$HOME"/Downloads/keepasshttp.zip
 sudo mv "$HOME"/Downloads/keepasshttp-master/KeePassHttp.plgx /usr/lib/keepass2/
 
