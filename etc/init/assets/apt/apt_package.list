@@ -39,6 +39,6 @@ unoconv
 vim
 virtualbox
 vlc
-wine
+wine-stable
 winetricks
 xdotool
