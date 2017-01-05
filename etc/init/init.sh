@@ -4,6 +4,8 @@
 trap 'echo Error: $0:$LINENO stopped; exit 1' ERR INT
 set -eu
 
+DOTPATH=~/.dotfiles
+
 # Ask for the administrator password upfront
 sudo -v
 
