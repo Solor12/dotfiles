@@ -16,30 +16,37 @@ done
 sudo apt -y update
 sudo apt -y upgrade
 
-# debパッケージの依存関係の解決
-yes | sudo apt install -f
-
 # login画面の背景画像の固定
 
 # ゲストセッションを無効化
 yes | sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" >/usr/share/lightdm/lightdm.conf.d/50-no-guest.conf'
+echo "Disable guest session"
 
 # シャットダウンに時間がかかる事がある現象に対応する
 sudo sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=10s/g' /etc/systemd/system.conf
 
 # aptでのpackageのインストール
+echo "Start installing apt-packages"
 APT_PACKAGES=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/apt_package.list`
-yes | sudo apt install $APT_PACKAGES
+yes | sudo apt install $APT_PACKAGES && echo "Finish installing apt-packages"
 
 # aptパッケージが用意されていないアプリをリストファイルからダウンロード（$HOME/Downloadsに保存）
+echo "Start downloading apps"
 yes | wget -i "$DOTPATH"/etc/init/linux/wget.list -P "$HOME"/Downloads
+echo "Finish downloading apps"
+
+# debパッケージの依存関係の解決
+echo "Solve dependancies of dev-packages"
+yes | sudo apt install -f
 
 # debパッケージのインストール
+echo "Start installing dev-packages"
 DPKGS=`tr '\n' ' ' < "$DOTPATH"/etc/init/linux/dpkg.list`
 for f in $DPKGS
 do
 	yes | sudo dpkg -i "$HOME"/Downloads/$f;
 done
+echo "Finish installing apps"
 
 # launcherのAmazonをシステムから削除
 yes | sudo apt remove unity-webapps-common
@@ -70,4 +77,4 @@ sudo mv "$HOME"/Downloads/keepasshttp-master/KeePassHttp.plgx /usr/lib/keepass2/
 
 
 # 手動でやる必要のあることを表示
-cat manual_setup.list
+cat "$DOTPATH"/etc/init/linux/manual_setup.list
