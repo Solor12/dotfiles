@@ -13,7 +13,11 @@ do
 done
 
 # packageのアップデート及びアップグレード
-sudo apt -y update && sudo apt -y upgrade
+sudo apt -y update
+sudo apt -y upgrade
+
+# debパッケージの依存関係の解決
+yes | sudo apt install -f
 
 # login画面の背景画像の固定
 
@@ -29,9 +33,6 @@ yes | sudo apt install $APT_PACKAGES
 
 # aptパッケージが用意されていないアプリをリストファイルからダウンロード（$HOME/Downloadsに保存）
 yes | wget -i "$DOTPATH"/etc/init/linux/wget.list -P "$HOME"/Downloads
-
-# debパッケージの依存関係の解決
-yes | sudo apt install -f
 
 # debパッケージのインストール
 DPKGS=`tr '\n' ' ' < "$DOTPATH"/etc/init/linux/dpkg.list`
