@@ -2,7 +2,7 @@
 
 # 『デスクトップ』『音楽』などの日本語フォルダー名を英語表記にする
 # （ダイアログを自動化する方法が分からないので最初に行う）
-yes | LANG=C xdg-user-dirs-gtk-update
+LANG=C xdg-user-dirs-gtk-update
 
 
 # ppaの追加
