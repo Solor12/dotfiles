@@ -13,8 +13,13 @@ do
 done
 
 # packageのアップデート及びアップグレード
+echo "Apt update & upgrade"
 sudo apt -y update
 sudo apt -y upgrade
+
+# debパッケージの依存関係の解決
+echo "Solve dependancies of dev-packages"
+yes | sudo apt install -f
 
 # login画面の背景画像の固定
 
@@ -34,10 +39,6 @@ yes | sudo apt install $APT_PACKAGES && echo "Finish installing apt-packages"
 echo "Start downloading apps"
 yes | wget -i "$DOTPATH"/etc/init/linux/wget.list -P "$HOME"/Downloads
 echo "Finish downloading apps"
-
-# debパッケージの依存関係の解決
-echo "Solve dependancies of dev-packages"
-yes | sudo apt install -f
 
 # debパッケージのインストール
 echo "Start installing dev-packages"
