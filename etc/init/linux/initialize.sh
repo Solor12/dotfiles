@@ -6,6 +6,7 @@ LANG=C xdg-user-dirs-gtk-update
 
 
 # ppaの追加
+echo "Add PPAs"
 PPAs=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/ppa.list`
 for f in $PPAs
 do
@@ -32,8 +33,14 @@ sudo sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=10s/g' /etc/syst
 
 # aptでのpackageのインストール
 echo "Start installing apt-packages"
-APT_PACKAGES=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/apt_package.list`
-yes | sudo apt install $APT_PACKAGES && echo "Finish installing apt-packages"
+##APT_PACKAGES=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/apt_package.list`
+##yes | sudo apt install $APT_PACKAGES && echo "Finish installing apt-packages"
+
+for f in $APT_PACKAGES
+do
+    yes | sudo apt install $f
+done
+echo "Finish installing apt-packages"
 
 # aptパッケージが用意されていないアプリをリストファイルからダウンロード（$HOME/Downloadsに保存）
 echo "Start downloading apps"
