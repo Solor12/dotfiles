@@ -12,7 +12,7 @@ for f in $PPAs
 do
 	yes | sudo apt-add-repository $f;
 done
-
+echo "Finish adding PPAs"
 # packageのアップデート及びアップグレード
 echo "Apt update & upgrade"
 sudo apt -y update
@@ -33,7 +33,7 @@ sudo sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=10s/g' /etc/syst
 
 # aptでのpackageのインストール
 echo "Start installing apt-packages"
-##APT_PACKAGES=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/apt_package.list`
+APT_PACKAGES=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/apt_package.list`
 ##yes | sudo apt install $APT_PACKAGES && echo "Finish installing apt-packages"
 
 for f in $APT_PACKAGES
