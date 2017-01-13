@@ -1,4 +1,5 @@
 DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+#DOTPATH    := $(HOME)/.dotfiles
 CANDIDATES := $(wildcard .??*)
 EXCLUSIONS := .DS_Store .git .gitmodules .travis.yml
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
@@ -18,6 +19,22 @@ deploy: ## Create symlink to home directory
 
 init: ## Setup environment settings
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
+
+init-creator: ## Setup environment settings for creator
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
+	@bash $(DOTPATH)/etc/init/assets/apt/app-cli.sh
+	@bash $(DOTPATH)/etc/init/assets/apt/app-creator.sh
+	@bash $(DOTPATH)/etc/init/assets/apt/app-extra.sh
+	@bash $(DOTPATH)/etc/init/assets/apt/app-utility.sh
+	@echo "Download krita"
+	@wget "http://download.kde.org/stable/krita/3.1.1/krita-3.1.1-x86_64.appimage" -P "$HOME"/Downloads
+	@cat $(DOTPATH)/etc/init/linux/manual_setup.list
+
+init-common: ## Setup environment settings for common
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
+	@bash $(DOTPATH)/etc/init/assets/apt/app-cli.sh
+	@bash $(DOTPATH)/etc/init/assets/apt/app-utility.sh
+	@cat $(DOTPATH)/etc/init/linux/manual_setup.list
 
 test: ## Test dotfiles and init scripts
 	@#DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/test/test.sh
