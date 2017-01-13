@@ -43,15 +43,15 @@ cat <<EOF
 EOF
 
 
-# debパッケージの依存関係の解決
-cat <<EOF
-######################################
-# Resolve dependance of deb_packages #
-######################################
-EOF
-
-yes | sudo apt update
-yes | sudo apt install -f
+## debパッケージの依存関係の解決
+#cat <<EOF
+#######################################
+## Resolve dependance of deb_packages #
+#######################################
+#EOF
+#
+#yes | sudo apt update
+#yes | sudo apt install -f
 
 
 # debパッケージのインストール
@@ -65,7 +65,8 @@ EOF
 
 for f in $DPKGs
 do
-    yes | sudo dpkg -i "$HOME"/Downloads/$f;
+    #yes | sudo dpkg -i "$HOME"/Downloads/$f;
+    yes | sudo gdebi -i "$HOME"/Downloads/$f;
 done
 
 cat <<EOF
