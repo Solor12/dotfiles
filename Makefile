@@ -26,6 +26,7 @@ init-creator: ## Setup environment settings for creator
 	@-bash $(DOTPATH)/etc/init/assets/apt/app-creator.sh
 	@-bash $(DOTPATH)/etc/init/assets/apt/app-extra.sh
 	@-bash $(DOTPATH)/etc/init/assets/apt/app-utility.sh
+	@-bash $(DOTPATH)/etc/init/assets/dpkg/dpkg.sh
 	@-echo "Download krita"
 	@-wget "http://download.kde.org/stable/krita/3.1.1/krita-3.1.1-x86_64.appimage" -P "$HOME"/Downloads
 	@-cat $(DOTPATH)/etc/init/linux/manual_setup.list
@@ -34,6 +35,7 @@ init-common: ## Setup environment settings for common
 	@-DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
 	@-bash $(DOTPATH)/etc/init/assets/apt/app-cli.sh
 	@-bash $(DOTPATH)/etc/init/assets/apt/app-utility.sh
+	@-bash $(DOTPATH)/etc/init/assets/dpkg/dpkg.sh
 	@-cat $(DOTPATH)/etc/init/linux/manual_setup.list
 
 test: ## Test dotfiles and init scripts
