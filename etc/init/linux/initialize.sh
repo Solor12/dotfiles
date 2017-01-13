@@ -132,10 +132,12 @@ cat <<EOF
 #########################
 EOF
 
-yes | sudo mv /usr/share/X11/xkb/keycodes/evdev /usr/share/X11/xkb/keycodes/bk-evdev && sudo cp evdev /usr/share/X11/xkb/keycodes/
+sudo mv /usr/share/X11/xkb/keycodes/evdev /usr/share/X11/xkb/keycodes/bk-evdev \
+    && sudo cp $DOTPATH/etc/init/linux/evdev /usr/share/X11/xkb/keycodes/
 
 ## capslockにreturnキーを割り当てる
-yes | sudo mv /usr/share/X11/xkb/symbols/jp /usr/share/X11/xkb/symbols/bk-jp && sudo cp jp /usr/share/X11/xkb/symbols/
+sudo mv /usr/share/X11/xkb/symbols/jp /usr/share/X11/xkb/symbols/bk-jp \
+    && sudo cp $DOTPATH/etc/init/linux/jp /usr/share/X11/xkb/symbols/
 
 
 
@@ -146,8 +148,9 @@ cat <<EOF
 ############################
 EOF
 
-yes | sudo cp 20-natural-scrolling.conf /usr/share/X11/xorg.conf.d/
-xinput set-prop "Logitech Wireless Mouse" "Evdev Scrolling Distance" -1 -1 -1
+sudo cp $DOTPATH/etc/init/linux/20-natural-scrolling.conf /usr/share/X11/xorg.conf.d/
+#xinput set-prop "Logitech Wireless Mouse" "Evdev Scrolling Distance" -1 -1 -1
+xinput set-prop "Logitech M705" "Evdev Scrolling Distance" -1 -1 -1
 
 
 
