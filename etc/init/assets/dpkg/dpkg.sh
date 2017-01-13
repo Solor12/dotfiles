@@ -66,7 +66,7 @@ EOF
 for f in $DPKGs
 do
     #yes | sudo dpkg -i "$HOME"/Downloads/$f;
-    yes | sudo gdebi -i "$HOME"/Downloads/$f;
+    yes | sudo gdebi "$HOME"/Downloads/$f;
 done
 
 cat <<EOF
