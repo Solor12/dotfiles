@@ -2,7 +2,14 @@
 
 # 『デスクトップ』『音楽』などの日本語フォルダー名を英語表記にする
 # （ダイアログを自動化する方法が分からないので最初に行う）
+cat <<EOF
+##########################################
+# Change names of directories to English #
+##########################################
+EOF
+
 LANG=C xdg-user-dirs-gtk-update
+
 
 
 # ppaの追加
@@ -14,12 +21,30 @@ LANG=C xdg-user-dirs-gtk-update
 #done
 #echo "Finish adding PPAs"
 
+
+
 # packageのアップデート及びアップグレード
-echo "Apt update & upgrade"
+cat <<EOF
+#############################
+# Update & upgrade packages #
+#############################
+EOF
+
 sudo apt -y update
 sudo apt -y upgrade
+
+
+
 # 不要な依存関係の削除
+cat <<EOF
+######################
+# Remove unnecessary #
+######################
+EOF
+
 yes | sudo apt autoremove
+
+
 
 ## debパッケージの依存関係の解決
 #echo "Solve dependancies of dev-packages"
@@ -27,12 +52,29 @@ yes | sudo apt autoremove
 
 # login画面の背景画像の固定
 
+
+
 # ゲストセッションを無効化
+cat <<EOF
+#########################
+# Disable guest-session #
+#########################
+EOF
+
 yes | sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\n" >/usr/share/lightdm/lightdm.conf.d/50-no-guest.conf'
-echo "Disable guest session"
+
+
 
 # シャットダウンに時間がかかる事がある現象に対応する
+cat <<EOF
+########################
+# Make shutdown faster #
+########################
+EOF
+
 sudo sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=10s/g' /etc/systemd/system.conf
+
+
 
 ## aptでのpackageのインストール
 #echo "Start installing apt-packages"
@@ -59,22 +101,55 @@ sudo sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=10s/g' /etc/syst
 #done
 #echo "Finish installing apps"
 
+
+
 # launcherのAmazonをシステムから削除
+cat <<EOF
+#################
+# Remove Amazon #
+#################
+EOF
+
 yes | sudo apt remove unity-webapps-common
 
 
+
 # 全体的なキーバインドをEmacsにする
+cat <<EOF
+###############################
+# Make Emacs like keybindings #
+###############################
+EOF
+
 gsettings set org.gnome.desktop.interface gtk-key-theme Emacs
 
+
+
 # xkbでキー配列を変更する
+cat <<EOF
+#########################
+# Remap physical keymap #
+#########################
+EOF
+
 yes | sudo mv /usr/share/X11/xkb/keycodes/evdev /usr/share/X11/xkb/keycodes/bk-evdev && sudo cp evdev /usr/share/X11/xkb/keycodes/
 
 ## capslockにreturnキーを割り当てる
 yes | sudo mv /usr/share/X11/xkb/symbols/jp /usr/share/X11/xkb/symbols/bk-jp && sudo cp jp /usr/share/X11/xkb/symbols/
 
+
+
 # マウスのスクロール方向を反転(デバイス名は必要に応じて変える)
+cat <<EOF
+############################
+# Reverse scroll direction #
+############################
+EOF
+
 yes | sudo cp 20-natural-scrolling.conf /usr/share/X11/xorg.conf.d/
 xinput set-prop "Logitech Wireless Mouse" "Evdev Scrolling Distance" -1 -1 -1
+
+
 
 # googleドライブをマウントする
 #gnome-control-center online-accounts
