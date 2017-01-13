@@ -6,21 +6,24 @@ LANG=C xdg-user-dirs-gtk-update
 
 
 # ppaの追加
-echo "Add PPAs"
-PPAs=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/ppa.list`
-for f in $PPAs
-do
-	yes | sudo apt-add-repository $f;
-done
-echo "Finish adding PPAs"
+#echo "Add PPAs"
+#PPAs=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/ppa.list`
+#for f in $PPAs
+#do
+#	yes | sudo apt-add-repository $f;
+#done
+#echo "Finish adding PPAs"
+
 # packageのアップデート及びアップグレード
 echo "Apt update & upgrade"
 sudo apt -y update
 sudo apt -y upgrade
+# 不要な依存関係の削除
+yes | sudo apt autoremove
 
-# debパッケージの依存関係の解決
-echo "Solve dependancies of dev-packages"
-yes | sudo apt install -f
+## debパッケージの依存関係の解決
+#echo "Solve dependancies of dev-packages"
+#yes | sudo apt install -f
 
 # login画面の背景画像の固定
 
@@ -31,36 +34,34 @@ echo "Disable guest session"
 # シャットダウンに時間がかかる事がある現象に対応する
 sudo sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=10s/g' /etc/systemd/system.conf
 
-# aptでのpackageのインストール
-echo "Start installing apt-packages"
-APT_PACKAGES=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/apt_package.list`
-##yes | sudo apt install $APT_PACKAGES && echo "Finish installing apt-packages"
+## aptでのpackageのインストール
+#echo "Start installing apt-packages"
+#APT_PACKAGES=`tr '\n' ' ' < "$DOTPATH"/etc/init/assets/apt/apt_package.list`
+###yes | sudo apt install $APT_PACKAGES && echo "Finish installing apt-packages"
+#
+#for f in $APT_PACKAGES
+#do
+#    yes | sudo apt install $f
+#done
+#echo "Finish installing apt-packages"
 
-for f in $APT_PACKAGES
-do
-    yes | sudo apt install $f
-done
-echo "Finish installing apt-packages"
+## aptパッケージが用意されていないアプリをリストファイルからダウンロード（$HOME/Downloadsに保存）
+#echo "Start downloading apps"
+#yes | wget -i "$DOTPATH"/etc/init/linux/wget.list -P "$HOME"/Downloads
+#echo "Finish downloading apps"
 
-# aptパッケージが用意されていないアプリをリストファイルからダウンロード（$HOME/Downloadsに保存）
-echo "Start downloading apps"
-yes | wget -i "$DOTPATH"/etc/init/linux/wget.list -P "$HOME"/Downloads
-echo "Finish downloading apps"
-
-# debパッケージのインストール
-echo "Start installing dev-packages"
-DPKGS=`tr '\n' ' ' < "$DOTPATH"/etc/init/linux/dpkg.list`
-for f in $DPKGS
-do
-	yes | sudo dpkg -i "$HOME"/Downloads/$f;
-done
-echo "Finish installing apps"
+## debパッケージのインストール
+#echo "Start installing dev-packages"
+#DPKGS=`tr '\n' ' ' < "$DOTPATH"/etc/init/linux/dpkg.list`
+#for f in $DPKGS
+#do
+#	yes | sudo dpkg -i "$HOME"/Downloads/$f;
+#done
+#echo "Finish installing apps"
 
 # launcherのAmazonをシステムから削除
 yes | sudo apt remove unity-webapps-common
 
-# 不要な依存関係の削除
-yes | sudo apt autoremove
 
 # 全体的なキーバインドをEmacsにする
 gsettings set org.gnome.desktop.interface gtk-key-theme Emacs
@@ -79,10 +80,10 @@ xinput set-prop "Logitech Wireless Mouse" "Evdev Scrolling Distance" -1 -1 -1
 #gnome-control-center online-accounts
 
 # chromeIPassを使えるようにする
-wget -O "$HOME"/Downloads/keepasshttp.zip https://github.com/pfn/keepasshttp/archive/master.zip
-unzip "$HOME"/Downloads/keepasshttp.zip -d "$HOME"/Downloads
-sudo mv "$HOME"/Downloads/keepasshttp-master/KeePassHttp.plgx /usr/lib/keepass2/
+#wget -O "$HOME"/Downloads/keepasshttp.zip https://github.com/pfn/keepasshttp/archive/master.zip
+#unzip "$HOME"/Downloads/keepasshttp.zip -d "$HOME"/Downloads
+#sudo mv "$HOME"/Downloads/keepasshttp-master/KeePassHttp.plgx /usr/lib/keepass2/
 
 
-# 手動でやる必要のあることを表示
-cat "$DOTPATH"/etc/init/linux/manual_setup.list
+## 手動でやる必要のあることを表示
+#cat "$DOTPATH"/etc/init/linux/manual_setup.list
