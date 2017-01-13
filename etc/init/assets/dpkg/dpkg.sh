@@ -55,6 +55,11 @@ EOF
 
 for f in ${DPKGs[@]}
 do
+    cat <<EOF
+============================
+ Installing $f
+============================
+EOF
     yes | sudo gdebi "$HOME"/Downloads/$f
 done
 
