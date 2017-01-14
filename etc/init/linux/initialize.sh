@@ -111,6 +111,7 @@ cat <<EOF
 EOF
 
 yes | sudo apt remove unity-webapps-common
+yes | sudo apt autoremove
 
 
 

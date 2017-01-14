@@ -5,7 +5,6 @@ evernote
 // $HOME/dotfiles/.xkb/を$HOMEにコピーした後$HOME/dotfiles/setkeybindingsを自動起動するアプリケーションに登録する
 opentoonz
 keefox
-chromeipass
 tagspace
 spacemacs
 prezto

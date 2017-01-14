@@ -1,18 +1,12 @@
 #!/bin/bash
 
 PPAs=(
-    #albert
-    ppa:nilarimogard/webupd8
-    #ffmpeg
-    ppa:jonathonf/ffmpeg-3
-    #handbrake
-    ppa:stebbins/handbrake-releases
-    #indicator-sysmonitor
-    ppa:fossfreedom/indicator-sysmonitor
-    #veracrypt
-    ppa:unit193/encryption
-    #wine
-    ppa:ubuntu-wine/ppa
+    ppa:nilarimogard/webupd8                #albert
+    ppa:jonathonf/ffmpeg-3                  #ffmpeg
+    ppa:stebbins/handbrake-releases         #handbrake
+    ppa:fossfreedom/indicator-sysmonitor    #indicator-sysmonitor
+    ppa:unit193/encryption                  #veracrypt
+    ppa:ubuntu-wine/ppa                     #wine
 )
 
 cat <<EOF
