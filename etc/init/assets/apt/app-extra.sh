@@ -80,7 +80,7 @@ do
 
 EOF
 
-    yes  sudo apt install $f
+    yes | sudo apt install $f
 done
 
 cat <<EOF
